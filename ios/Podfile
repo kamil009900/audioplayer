@@ -15,6 +15,7 @@ if linkage != nil
 end
 
 target 'audioplayer' do
+  ENV['RCT_NEW_ARCH_ENABLED'] = "0"
   config = use_native_modules!
 
   use_react_native!(

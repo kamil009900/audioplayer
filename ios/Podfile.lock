@@ -1210,6 +1210,30 @@ PODS:
     - React-jsiexecutor
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
+  - react-native-slider (4.5.5):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - react-native-track-player (4.1.1):
+    - React-Core
+    - SwiftAudioEx (= 1.1.0)
   - React-nativeconfig (0.77.0)
   - React-NativeModulesApple (0.77.0):
     - glog
@@ -1499,7 +1523,10 @@ PODS:
     - React-logger (= 0.77.0)
     - React-perflogger (= 0.77.0)
     - React-utils (= 0.77.0)
+  - RNSVG (15.11.1):
+    - React-Core
   - SocketRocket (0.7.1)
+  - SwiftAudioEx (1.1.0)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -1541,6 +1568,8 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
+  - "react-native-slider (from `../node_modules/@react-native-community/slider`)"
+  - react-native-track-player (from `../node_modules/react-native-track-player`)
   - React-nativeconfig (from `../node_modules/react-native/ReactCommon`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -1570,11 +1599,13 @@ DEPENDENCIES:
   - ReactAppDependencyProvider (from `build/generated/ios`)
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
     - SocketRocket
+    - SwiftAudioEx
 
 EXTERNAL SOURCES:
   boost:
@@ -1650,6 +1681,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   React-microtasksnativemodule:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/microtasks"
+  react-native-slider:
+    :path: "../node_modules/@react-native-community/slider"
+  react-native-track-player:
+    :path: "../node_modules/react-native-track-player"
   React-nativeconfig:
     :path: "../node_modules/react-native/ReactCommon"
   React-NativeModulesApple:
@@ -1708,6 +1743,8 @@ EXTERNAL SOURCES:
     :path: build/generated/ios
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -1748,16 +1785,18 @@ SPEC CHECKSUMS:
   React-logger: 02e5802824aa9b15cb7df42e10a91abead83cd8d
   React-Mapbuffer: 99bd566147aaa78e872568be53ebca8a4449ddae
   React-microtasksnativemodule: 51e7813abf875408a0f367e473a65bbab6aa8481
+  react-native-slider: fbd5138b5386e36807d0e0666135b0c2c32ba4fe
+  react-native-track-player: 6dc2e2633265704b8ab6d8124b80239d4ed1f911
   React-nativeconfig: cd0fbb40987a9658c24dab5812c14e5522a64929
   React-NativeModulesApple: 4a9c304aa4fb086af32e8758ba892386d895b4d3
   React-perflogger: 721172bda31a65ce7b7a0c3bf3de96f12ef6f45d
   React-performancetimeline: 46dbe9fd618ff882f59600dcd9fa923a9713cc3b
   React-RCTActionSheet: 25eb72eabade4095bfaf6cd9c5c965c76865daa8
   React-RCTAnimation: 8efbd0a4a71fd3dbe84e6d08b92bec5728b7524b
-  React-RCTAppDelegate: 8ff6da817adefd15d4e25ade53a477c344f9b213
+  React-RCTAppDelegate: 24bd0809bbd8530433071cb23624b293fc4bfe46
   React-RCTBlob: 6056bd62a56a6d2dad55cdf195949db1de623e14
-  React-RCTFabric: 949589de63c19b8b197555567fbc51eebd265bbc
-  React-RCTFBReactNativeSpec: 4214925b1c4829fb1e73bfbacb301244b522dc11
+  React-RCTFabric: eb2fd8b31c7f2cd357bb6f13e31c7bf6b161af0c
+  React-RCTFBReactNativeSpec: f090aac2576291f571848cc408f3d200259c576d
   React-RCTImage: 7b3f38c77e183bdcb43dbcd7b5842b96c814889a
   React-RCTLinking: 6cca74db71b23f670b72e45603e615c2b72b2235
   React-RCTNetwork: 5791b0718eff20c12f6f3d62e2ad50cff4b5c8a0
@@ -1777,9 +1816,11 @@ SPEC CHECKSUMS:
   ReactAppDependencyProvider: 6e8d68583f39dc31ee65235110287277eb8556ef
   ReactCodegen: c08a5113d9c9c895fe10f3c296f74c6b705a60a9
   ReactCommon: 1bd2dc684d7992acbf0dfee887b89a57a1ead86d
+  RNSVG: 4903d466c3a877644d5219dbc1d97f9ef9e4a3cc
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
+  SwiftAudioEx: f6aa653770f3a0d3851edaf8d834a30aee4a7646
   Yoga: 78d74e245ed67bb94275a1316cdc170b9b7fe884
 
-PODFILE CHECKSUM: 6c1c95239d2a6cb16c943e1e20f5581305da9851
+PODFILE CHECKSUM: 712ea75231a79f1b1bc97c05a547148c23c1d553
 
 COCOAPODS: 1.15.2

@@ -1,42 +1,38 @@
+
+# General info
+1. I didnt use any state management because it would be a slight overkill for an app that small. Just for simplicity i used react context.
+2. I added some ui-library for few components so its not all ugly, i didnt spend much time on UI, but UX in general should be friendly.
+3. I also skipped any artist images or any improvement to UI in general, i focused only on functionality.
+4. Whole project uses typescript, there are some small things for better development like import aliases, eslint etc.
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
-## Step 1: Start Metro
-
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
-
-To start the Metro dev server, run the following command from the root of your React Native project:
+## Step 1: Install packages & Start Metro
 
 ```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+npm install
 ```
 
-## Step 2: Build and run your app
+Then, you will need to run **Metro**
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+```sh
+npm start
+```
+
+## Step 2: Build your app
 
 ### Android
 
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
+`
+open project via android studio and build it, then run on emulator
+`
 
 ### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
 
 ```sh
 bundle install
@@ -47,51 +43,27 @@ Then, and every time you update your native dependencies, run:
 ```sh
 bundle exec pod install
 ```
+Then
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+`
+run app via xcode
+`
 
-```sh
-# Using npm
-npm run ios
 
-# OR using Yarn
-yarn ios
-```
+# Challenges encountered:
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+1. React-native-track-player has issues with new react-native architecture, so i had to disable it (there is ongoing issue on github about that)
+2. Achieving proper performance while dragging the timeline player required some unusual approach and was a bit tricky to implement
+3. I had to figure out by myself a lot of things regarding react-native-track-player so it took me a while to understand the package and use it properly, especially on android sometimes it didnt work for no reason, but should be fine now.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
 
-## Step 3: Modify your app
+# Testing the app
 
-Now that you have successfully run the app, let's make changes!
+There are 5 hardcoded songs, on app open it should activate the first one and load whole playlist to queue. 
+User is able to:
+1. play/pause the song
+2. skip forward / skip to previous
+3. drag the timeline to change the song's current time
+4. clearly see song duration that is left to play and duration that was already played during "dragging"
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+All of the above is also supported while application is in background
