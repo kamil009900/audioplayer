@@ -1,10 +1,10 @@
-
 # General info
+
+0. App tested on iOS simulator, iOS real device, android simulator.
 1. I didnt use any state management because it would be a slight overkill for an app that small. Just for simplicity i used react context.
 2. I added some ui-library for few components so its not all ugly, i didnt spend much time on UI, but UX in general should be friendly.
 3. I also skipped any artist images or any improvement to UI in general, i focused only on functionality.
 4. Whole project uses typescript, there are some small things for better development like import aliases, eslint etc.
-
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
@@ -12,7 +12,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
-## Step 1: Install packages & Start Metro
+## How to start
 
 ```sh
 npm install
@@ -24,13 +24,9 @@ Then, you will need to run **Metro**
 npm start
 ```
 
-## Step 2: Build your app
-
 ### Android
 
-`
-open project via android studio and build it, then run on emulator
-`
+`open project via android studio and build it, then run on emulator`
 
 ### iOS
 
@@ -38,17 +34,15 @@ open project via android studio and build it, then run on emulator
 bundle install
 ```
 
-Then, and every time you update your native dependencies, run:
+Then, and every time you update your native dependencies, run (inside ios folder):
 
 ```sh
 bundle exec pod install
 ```
+
 Then
 
-`
-run app via xcode
-`
-
+`run app via xcode`
 
 # Challenges encountered:
 
@@ -56,11 +50,11 @@ run app via xcode
 2. Achieving proper performance while dragging the timeline player required some unusual approach and was a bit tricky to implement
 3. I had to figure out by myself a lot of things regarding react-native-track-player so it took me a while to understand the package and use it properly, especially on android sometimes it didnt work for no reason, but should be fine now.
 
-
 # Testing the app
 
-There are 5 hardcoded songs, on app open it should activate the first one and load whole playlist to queue. 
+There are 5 hardcoded songs, on app open it should activate the first one and load whole playlist to queue.
 User is able to:
+
 1. play/pause the song
 2. skip forward / skip to previous
 3. drag the timeline to change the song's current time
