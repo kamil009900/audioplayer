@@ -7,6 +7,7 @@ import React, {
   useMemo,
   useState,
 } from 'react';
+import Toast from 'react-native-toast-message';
 import TrackPlayer, {
   useTrackPlayerEvents,
   Event,
@@ -73,7 +74,11 @@ export const TrackPlayerProvider = ({children}: PropsWithChildren) => {
       setInitialized(true);
     };
 
-    initialize();
+    try {
+      initialize();
+    } catch {
+      Toast.show({type: 'error', text1: 'Player initialization failed'});
+    }
   }, []);
 
   useEffect(() => {
@@ -85,12 +90,20 @@ export const TrackPlayerProvider = ({children}: PropsWithChildren) => {
         setPlaylistAdded(true);
       }
     };
-    setPlaylist();
+
+    try {
+      setPlaylist();
+    } catch {
+      Toast.show({type: 'error', text1: 'Playlist initialization failed'});
+    }
   }, [currentPlaylist, initialized]);
 
   useTrackPlayerEvents(events, event => {
     if (event.type === Event.PlaybackError) {
-      console.warn('An error occured while playing the current track.');
+      Toast.show({
+        type: 'error',
+        text1: 'An error occured while playing the current track.',
+      });
     }
     if (event.type === Event.PlaybackState) {
       setPlayerState(event.state);

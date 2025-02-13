@@ -5,7 +5,6 @@
 2. I added some ui-library for few components so its not all ugly, i didnt spend much time on UI, but UX in general should be friendly.
 3. I also skipped any artist images or any improvement to UI in general, i focused only on functionality.
 4. Whole project uses typescript, there are some small things for better development like import aliases, eslint etc.
-5. I do not display any errors (like some toasts or something) -> its just a console.warn for wrong player state. I could wrap all the TrackPlayer functions with a try catch and show toats if there is any error but I didnt encounter any while testing and I didnt want to implement something that is just for the sake of showing it. But i remembered about error handling, just decided not to do it here (I focused on logic and performance)
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 

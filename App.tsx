@@ -9,6 +9,7 @@ import {TrackPlayerProvider} from '@providers/track-player-context';
 import {BottomPlayer} from '@components/bottom-player/bottom-player';
 import {Playlist} from '@components/playlist/playlist';
 import {PLAYLIST} from '@constants/tracks-list';
+import Toast from 'react-native-toast-message';
 import React from 'react';
 
 function App(): React.JSX.Element {
@@ -31,6 +32,7 @@ function App(): React.JSX.Element {
         <Playlist playlist={PLAYLIST} />
         <BottomPlayer />
       </TrackPlayerProvider>
+      <Toast />
     </SafeAreaView>
   );
 }
